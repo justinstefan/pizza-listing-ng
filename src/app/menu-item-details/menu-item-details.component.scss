@@ -1,0 +1,46 @@
+.mat-toolbar {
+  padding: 0;
+
+  .btn-back {
+    height: 64px;
+    padding: 0;
+
+    .mat-icon {
+      font-size: 3rem;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  .mat-divider {
+    height: 64px;
+    margin-right: 1rem;
+  }
+}
+
+.mat-card {
+  padding: 0 1rem;
+}
+
+.ingredients {
+  margin: 1rem;
+}
+
+.food-addon-list {
+  margin: 1rem;
+
+  &-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.food-addon-choice {
+  display: flex;
+  cursor: pointer;
+  padding: 1rem 0;
+
+  &-name {
+    flex: 1;
+  }
+}
