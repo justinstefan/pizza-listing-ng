@@ -1,3 +1,6 @@
+![Screenshot 1](src/assets/screen1.jpg)
+![Screenshot 2](src/assets/screen2.jpg)
+
 # PracticalTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.

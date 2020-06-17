@@ -41,6 +41,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "baseHref": "/pizza-listing-ng/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -124,6 +125,10 @@
               "devServerTarget": "practical-test:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
