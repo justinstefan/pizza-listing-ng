@@ -3,17 +3,12 @@
   <div class="category-list-title">{{ menuCategory.name }}</div>
   <mat-card>
     <ng-container
-      *ngFor="let menuItem of getMenuItemsByCategoryId(menuCategory.id); last as isLast"
+      *ngFor="
+        let menuItem of getMenuItemsByCategoryId(menuCategory.id);
+        last as isLast
+      "
     >
-      <div (click)="navigateToDetails(menuItem.id)" class="food-menu-item">
-        <div class="food-menu-item-description">
-          <div class="title">{{ menuItem.name }}</div>
-          <div class="ingredients" *ngIf="menuItem.ingredients">({{menuItem.ingredients}})</div>
-        </div>
-        <div class="price">
-          {{ menuItem.price }}
-        </div>
-      </div>
+      <app-food-menu-item [menuItem]="menuItem"></app-food-menu-item>
       <mat-divider *ngIf="!isLast"></mat-divider>
     </ng-container>
   </mat-card>

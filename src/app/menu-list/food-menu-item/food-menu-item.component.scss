@@ -1,0 +1,23 @@
+.food-menu-item {
+  display: flex;
+  width: 100%;
+  padding: 1rem 0;
+  cursor: pointer;
+
+  .food-menu-item-description {
+    flex: 1;
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: .5rem;
+  }
+
+  .ingredients {
+    font-size: 0.8 rem
+  }
+
+  .price {
+    font-weight: bold;
+  }
+}

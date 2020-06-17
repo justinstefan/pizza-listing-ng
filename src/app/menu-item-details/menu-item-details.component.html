@@ -10,19 +10,4 @@
   ({{ menuItem.ingredients }})
 </div>
 
-<div *ngFor="let foodAddon of menuAddons" class="food-addon-list">
-  <div class="food-addon-list-title">{{ foodAddon.name }}</div>
-  <mat-card>
-    <ng-container *ngFor="let choice of foodAddon.choices; last as isLast">
-      <div class="food-addon-choice" matRipple (click)="toggleAddonChoice(choice)">
-        <div class="food-addon-choice-name">
-          {{ choice.name }}
-        </div>
-        <b class="food-addon-choice-price" *ngIf="choice.price">
-          +{{ choice.price }} {{ choice.currency }}
-        </b>
-      </div>
-      <mat-divider *ngIf="!isLast"></mat-divider>
-    </ng-container>
-  </mat-card>
-</div>
+<app-food-addon-list [listData]="menuAddons"></app-food-addon-list>

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../menu.service';
-import { Router } from '@angular/router';
-import { FoodMenuCategory } from '../data';
+import { MenuService, FoodMenuCategory, FoodMenuItem } from '../menu.service';
 
 @Component({
   selector: 'app-menu-list',
@@ -13,19 +11,13 @@ export class MenuListComponent implements OnInit {
 
   constructor(
     private menuService: MenuService,
-    private router: Router
   ) { }
 
   ngOnInit() {
     this.menuCategories = this.menuService.getMenuCategories()
-    console.log(this.menuCategories)
   }
 
-  navigateToDetails(itemId) {
-    this.router.navigate(['menu-item-details', itemId]);
-  }
-
-  getMenuItemsByCategoryId(categoryId) {
+  getMenuItemsByCategoryId(categoryId: number): FoodMenuItem[] {
     return this.menuService.getMenuItemsByCategoryId(categoryId)
   }
 }

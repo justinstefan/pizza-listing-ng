@@ -1,0 +1,22 @@
+.mat-card {
+  padding: 0;
+}
+
+.food-addon-list {
+  margin: 1rem;
+
+  &-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.food-addon-choice {
+  display: flex;
+  cursor: pointer;
+  padding: 1rem;
+
+  &-name {
+    flex: 1;
+  }
+}

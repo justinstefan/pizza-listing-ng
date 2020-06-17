@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../menu.service';
+import { MenuService, FoodAddon, FoodMenuItem } from '../menu.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FoodMenuItem, FoodAddon } from '../data';
 
 @Component({
   selector: 'app-menu-item-details',
@@ -25,15 +24,11 @@ export class MenuItemDetailsComponent implements OnInit {
     this.router.navigate(['menu-list'])
   }
 
-  toggleAddonChoice(choice: any) {
-
-  }
-
   get menuAddons(): FoodAddon[] {
     return this.menuService.menuAddons
   }
 
-  get menuItem(): FoodMenuItem {
-    return this.menuService.getMenuItem(this.menuItemId)
+  get menuItem(): FoodMenuItem | any {
+    return this.menuService.getMenuItem(this.menuItemId) || {}
   }
 }

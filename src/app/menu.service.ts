@@ -1,41 +1,61 @@
 import { Injectable } from "@angular/core";
-import {
-  foodMenuCategories,
-  foodMenuItems,
-  foodAddons,
-  FoodMenuCategory,
-  FoodMenuItem,
-  FoodAddon,
-} from "./data";
+
+import data from 'src/assets/data.json'
+
+export type FoodMenuItem = {
+  id: Number;
+  name: String;
+  category: Number[];
+  addons?: Number[];
+  ingredients?: String[];
+  price: String;
+};
+
+export type FoodMenuCategory = {
+  id: Number;
+  name: String;
+  addons?: Number[];
+};
+
+export type FoodAddon = {
+  id: Number;
+  name: String;
+  choices: {
+    name: String;
+    id: Number;
+    price?: Number;
+    currency?: String;
+  }[];
+};
 
 @Injectable({
   providedIn: "root",
 })
 export class MenuService {
-  menuCategories: FoodMenuCategory[] = foodMenuCategories;
-  menuItems: FoodMenuItem[] = foodMenuItems;
-  menuAddons: FoodAddon[] = foodAddons;
+  menuCategories: FoodMenuCategory[] = data.menuCategories;
+  menuItems: FoodMenuItem[] = data.menuItems;
+  menuAddons: FoodAddon[] = data.foodAddons;
 
   constructor() {}
 
-  getMenuCategories() {
+  getMenuCategories(): FoodMenuCategory[] {
     return this.menuCategories;
   }
 
-  getMenuItemsByCategoryId(categoryId) {
+  getMenuItemsByCategoryId(categoryId: Number): FoodMenuItem[] {
     return this.menuItems.filter(
       (item) => item.category.indexOf(categoryId) > -1
     );
   }
 
-  getMenuItem(menuItemId) {
+  getMenuItem(menuItemId: Number): FoodMenuItem {
     return this.menuItems.find((item) => item.id === menuItemId);
   }
 
-  getAddons(addonIds?) {
-    if(!addonIds) {
-      return this.menuAddons
+  getAddons(addonIds?: Number[]) : FoodAddon[] {
+    if (!addonIds) {
+      return this.menuAddons;
     }
-    return this.menuAddons.filter(addon => addonIds.indexOf(addon.id) > -1);
+    return this.menuAddons.filter((addon) => addonIds.indexOf(addon.id) > -1);
   }
 }
